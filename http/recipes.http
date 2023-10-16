@@ -1,0 +1,15 @@
+GET localhost:8080/recipe/all
+
+###
+
+POST localhost:8080/recipe/new
+Content-Type: application/json
+
+{
+  "id": 3,
+  "name": "topfnschmoan"
+}
+
+###
+
+GET localhost:8080/recipe/3
