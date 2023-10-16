@@ -17,4 +17,15 @@ class RecipeEntity {
 	@Min(message = "Has to be suitable for at least 1 person", value = 1)
 	var suitableForPeople: Int? = null
 	var timeToCook: Duration? = null
+
+	override fun equals(other: Any?): Boolean = when {
+		this === other -> true
+		other !is RecipeEntity -> false
+		else -> id == other.id
+	}
+
+	override fun hashCode(): Int = id?.hashCode() ?: -1
+
+	override fun toString(): String =
+		"RecipeEntity(id=$id, name=$name, suitableForPeople=$suitableForPeople, timeToCook=$timeToCook)"
 }

@@ -5,6 +5,8 @@ import com.github.simulatan.sew_quarkus_introduction.repository.RecipeRepository
 import jakarta.validation.Valid
 import jakarta.ws.rs.*
 import jakarta.ws.rs.core.MediaType
+import jakarta.ws.rs.core.Response
+import java.net.URI
 
 @Path("/recipe")
 class RecipeResource(
@@ -23,5 +25,9 @@ class RecipeResource(
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("new")
-	fun createRecipe(@Valid recipeEntity: RecipeEntity) = recipeRepository.addRecipe(recipeEntity)
+	fun createRecipe(@Valid recipeEntity: RecipeEntity): Response? {
+		recipeRepository.addRecipe(recipeEntity)
+		return Response.created(URI.create("/recipe/${recipeEntity.id}"))
+			.build()
+	}
 }

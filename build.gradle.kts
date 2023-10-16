@@ -25,6 +25,7 @@ dependencies {
 	implementation("io.quarkus:quarkus-resteasy")
 	testImplementation("io.quarkus:quarkus-junit5")
 	testImplementation("io.rest-assured:rest-assured")
+	testImplementation("io.rest-assured:kotlin-extensions")
 }
 
 group = "com.github.simulatan.sew_quarkus_introduction"
